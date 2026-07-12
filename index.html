@@ -40,7 +40,6 @@
             background-attachment: fixed;
             color: var(--dark-text);
             overflow-x: hidden;
-            padding-bottom: 50px;
         }
 
         /* Sparkle Cursor Container */
@@ -665,6 +664,23 @@
             content: '✿'; position: absolute; left: 0; color: var(--neon-pink);
         }
 
+        /* Footer styling with clear separation */
+        footer {
+            clear: both;
+            position: relative;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 0.85rem;
+            background: var(--glass-white);
+            border-top: var(--border-retro);
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
+            z-index: 10;
+        }
+        .heart-icon { color: var(--neon-pink); animation: blink 1.5s infinite; }
+
         @media (max-width: 820px) {
             .hero-section, .drawer-inner, .goals-grid, .reflection-grid {
                 grid-template-columns: 1fr;
@@ -748,7 +764,7 @@
             </div>
         </section>
 
-        <!-- Goals of Digital Portfolio Section -->
+        <!-- Goal of Digital Portfolio Section -->
         <section class="goals-section" id="goals">
             <div class="retro-title-bar">
                 <div class="window-dots">
@@ -1132,7 +1148,7 @@
                                         <li><strong>Trello (Quản lý việc cá nhân):</strong> Xây dựng bảng gồm 4 cột (To Do, Doing, Review, Done). Quản lý thẻ việc: Tìm article, Lập general outline, Viết draft, Peer review. Sử dụng nhãn màu (Labels) phân loại và đặt deadline rõ ràng.</li>
                                         <li><strong>Google Docs (Cộng tác soạn thảo):</strong> Cả nhóm cùng xây dựng dàn ý và phát triển nội dung trực tuyến. Sử dụng tính năng <code>Comment</code> và <code>Suggesting</code> góp ý lỗi ngữ pháp, dùng lịch sử chỉnh sửa (Version history) theo dõi đóng góp cá nhân và khôi phục khi cần.</li>
                                         <li><strong>Google Drive (Kho lưu trữ chung):</strong> Tổ chức cấu trúc thư mục rõ ràng gồm: Selected information, Draft, Peer review, Reading package. Đồng nhất quy tắc đặt tên tệp: First draft, Second draft, Final draft để tránh nhầm lẫn phiên bản.</li>
-                                        <li><strong>Google Meet (Họp nhóm trực tuyến):</strong> Tổ chức họp buổi tối trực tiếp thống nhất bố cục và lựa chọn tài liệu, tiết kiệm tối đa thời gian di chuyển.</li>
+                                        <li><strong>Google Meet (Họp nhóm trực tuyến):</strong> Tổ chức họp trực tuyến định kỳ vào buổi tối để thống nhất bố cục và lựa chọn tài liệu, tiết kiệm tối đa thời gian di chuyển.</li>
                                     </ul>
                                 </div>
                                 <div class="section-box">
@@ -1233,7 +1249,7 @@
                                             </tr>
                                             <tr>
                                                 <td><strong>DALL-E</strong></td>
-                                                <td>Minh họa độc đáo, trực quan hóa tốt các ý tưởng khó diễn tả bằng lời.</td>
+                                                <td>Minh họa độc đáo, trực quan hóa tốt các ý tưởng phức tạp, đa phong cách.</td>
                                                 <td>Khó kiểm soát chi tiết nhỏ, đôi khi bị lỗi hình ảnh, cần điều chỉnh prompt nhiều lần.</td>
                                             </tr>
                                             <tr>
@@ -1385,7 +1401,7 @@
 
     </div>
 
-    <!-- Footer -->
+    <!-- Footer with clear separation and positioning -->
     <footer>
         <p>Kiến tạo bằng cả trái tim <span class="heart-icon">♥</span> và tư duy số bởi Ngô Yến Linh - MSV: 25040124</p>
         <p style="font-size: 0.75rem; color: #64748b; margin-top: 8px;">© 2026 VNU1001 Digital Portfolio. All rights reserved.</p>
