@@ -19,7 +19,7 @@
             --neon-pink: #f472b6;
             --neon-purple: #c084fc;
             --dark-text: #1e293b;
-            --glass-white: rgba(255, 255, 255, 0.85);
+            --glass-white: rgba(255, 255, 255, 0.9);
             --border-retro: 3px solid #1e293b;
             --shadow-retro: 6px 6px 0px #c084fc;
         }
@@ -53,34 +53,19 @@
             pointer-events: none;
             z-index: 9999;
         }
-
         .sparkle-dot {
             position: absolute;
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             background: radial-gradient(circle, #fff 10%, var(--pastel-pink) 50%, transparent 100%);
             border-radius: 50%;
             pointer-events: none;
             transform: translate(-50%, -50%);
-            animation: sparkle-fall 1.2s ease-out forwards;
+            animation: sparkle-fall 1s ease-out forwards;
         }
-
         @keyframes sparkle-fall {
             0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1; }
             100% { transform: translate(-50%, -50%) scale(0) rotate(180deg); opacity: 0; }
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--pastel-purple);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--neon-purple);
-            border: 3px solid var(--pastel-purple);
-            border-radius: 6px;
         }
 
         /* Float & Pulse Animations */
@@ -113,7 +98,6 @@
             user-select: none;
             transition: transform 0.1s;
         }
-        .sticker:active { transform: scale(0.95); }
 
         /* Floating Music Player */
         .music-widget {
@@ -144,16 +128,7 @@
             animation-play-state: paused;
         }
         .cd-disk::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 10px;
-            height: 10px;
-            background: #fff;
-            border-radius: 50%;
-            border: 1.5px solid var(--dark-text);
+            content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 10px; height: 10px; background: #fff; border-radius: 50%; border: 1.5px solid var(--dark-text);
         }
         .music-info { font-size: 0.75rem; }
         .music-title { font-weight: 700; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -240,14 +215,14 @@
             box-shadow: 4px 4px 0px var(--dark-text);
         }
 
-        /* Container & Layout Elements */
+        /* Container Layout */
         .wrapper {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Hero / Introduction Section */
+        /* Hero Section */
         .hero-section {
             display: grid;
             grid-template-columns: 1fr 1.6fr;
@@ -359,7 +334,7 @@
         }
         .goals-grid {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 25px;
             margin-top: 15px;
         }
@@ -422,23 +397,11 @@
             margin-top: 5px;
         }
 
-        /* Drive CTA Button before projects */
-        .middle-drive-cta {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .middle-drive-cta .drive-btn {
-            display: inline-flex;
-            padding: 12px 25px;
-            font-size: 1rem;
-        }
+        .middle-drive-cta { text-align: center; margin-bottom: 30px; }
+        .middle-drive-cta .drive-btn { display: inline-flex; padding: 12px 25px; font-size: 1rem; }
 
         /* Portfolio Cards Grid */
-        .cards-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 35px;
-        }
+        .cards-grid { display: flex; flex-direction: column; gap: 35px; }
 
         /* Retro App Window Card */
         .app-window {
@@ -514,10 +477,10 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
-            background: rgba(255, 255, 255, 0.93);
+            background: rgba(255, 255, 255, 0.95);
         }
         .drawer.open {
-            max-height: 2500px;
+            max-height: 4000px;
             transition: max-height 0.8s ease-in-out;
             border-top: var(--border-retro);
         }
@@ -595,15 +558,36 @@
         .sim-action-btn { background: var(--pastel-purple); border: 1.5px solid var(--dark-text); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; cursor: pointer; box-shadow: 2px 2px 0 var(--dark-text); }
         .sim-action-btn:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 var(--dark-text); }
 
-        /* Sim 2: Dynamic Scholar Filter */
+        /* Sim 2: Scholar List Table */
+        .scholar-table-container {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1.5px solid var(--dark-text);
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .scholar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.75rem;
+            text-align: left;
+        }
+        .scholar-table th, .scholar-table td {
+            padding: 8px;
+            border: 1px solid #cbd5e1;
+        }
+        .scholar-table th {
+            background-color: var(--pastel-purple);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
         .filter-tabs { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
         .filter-tab { background: #f1f5f9; border: 1.5px solid var(--dark-text); padding: 3px 8px; border-radius: 15px; font-size: 0.7rem; font-weight: 700; cursor: pointer; }
         .filter-tab.active { background: var(--pastel-pink); }
-        .scholar-list-mock { display: flex; flex-direction: column; gap: 6px; }
-        .scholar-item-mock { background: #f8fafc; border: 1px solid #cbd5e1; padding: 6px 10px; border-radius: 4px; font-size: 0.75rem; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s; }
 
         /* Sim 3: Prompt Upgrader */
-        .prompt-box { background: #f8fafc; border: 1.5px solid var(--dark-text); padding: 10px; border-radius: 4px; font-size: 0.75rem; min-height: 80px; margin-bottom: 8px; }
+        .prompt-box { background: #f8fafc; border: 1.5px solid var(--dark-text); padding: 10px; border-radius: 4px; font-size: 0.75rem; min-height: 120px; margin-bottom: 8px; line-height: 1.4; overflow-y: auto; max-height: 250px; }
         .tag-c { background: #fed7aa; padding: 1px 4px; border-radius: 3px; font-weight: bold; }
         .tag-r { background: #fbcfe8; padding: 1px 4px; border-radius: 3px; font-weight: bold; }
         .tag-e { background: #cffafe; padding: 1px 4px; border-radius: 3px; font-weight: bold; }
@@ -613,7 +597,7 @@
 
         /* Sim 4: Interactive Kanban (Trello) */
         .kanban-board { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
-        .kanban-col { background: #f1f5f9; border: 1.5px solid var(--dark-text); border-radius: 4px; padding: 6px; min-height: 120px; }
+        .kanban-col { background: #f1f5f9; border: 1.5px solid var(--dark-text); border-radius: 4px; padding: 6px; min-height: 150px; }
         .kanban-col-title { font-size: 0.7rem; font-weight: bold; text-align: center; margin-bottom: 6px; background: var(--pastel-purple); padding: 2px; border: 1px solid var(--dark-text); border-radius: 2px; }
         .kanban-card { background: #fff; border: 1px solid var(--dark-text); padding: 4px; border-radius: 3px; font-size: 0.65rem; margin-bottom: 4px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
 
@@ -627,6 +611,22 @@
         .quiz-option { background: #f8fafc; border: 1px solid #cbd5e1; padding: 8px; border-radius: 4px; font-size: 0.75rem; margin-bottom: 6px; cursor: pointer; transition: all 0.2s; }
         .quiz-option:hover { background: #f1f5f9; border-color: var(--dark-text); }
         .quiz-feedback { font-size: 0.75rem; font-weight: bold; display: none; margin-top: 6px; }
+
+        /* Comparative Analysis Table styling (Task 3) */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            margin-top: 15px;
+            border: 2px solid var(--dark-text);
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid var(--dark-text);
+            padding: 8px;
+        }
+        .comparison-table th {
+            background-color: var(--pastel-purple);
+        }
 
         /* Journey Reflections / Summary Section */
         .summary-section { margin: 60px auto 40px; }
@@ -665,18 +665,6 @@
             content: '✿'; position: absolute; left: 0; color: var(--neon-pink);
         }
 
-        /* Footer styling */
-        footer {
-            text-align: center;
-            padding: 35px 20px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 500;
-            font-size: 0.85rem;
-            background: rgba(255,255,255,0.6);
-            border-top: var(--border-retro);
-        }
-        .heart-icon { color: var(--neon-pink); animation: blink 1.5s infinite; }
-
         @media (max-width: 820px) {
             .hero-section, .drawer-inner, .goals-grid, .reflection-grid {
                 grid-template-columns: 1fr;
@@ -686,7 +674,6 @@
 </head>
 <body>
 
-    <!-- Canvas-like Sparkle Trail Container -->
     <div id="sparkle-container"></div>
 
     <!-- Floating Draggable Stickers -->
@@ -720,12 +707,10 @@
         </div>
     </header>
 
-    <!-- Main Wrapper -->
     <div class="wrapper">
         
-        <!-- Hero / Profile Section -->
+        <!-- Hero Section -->
         <section class="hero-section" id="about">
-            <!-- Profile Card -->
             <div class="profile-card">
                 <div class="avatar-frame">
                     <div class="rec-dot"></div>
@@ -741,7 +726,6 @@
                 </div>
             </div>
 
-            <!-- Intro Window -->
             <div class="hero-intro">
                 <div class="retro-title-bar">
                     <div class="window-dots">
@@ -794,7 +778,7 @@
             </div>
         </section>
 
-    </div><!-- End wrapper for top -->
+    </div>
 
     <!-- Marquee Text Ribbon -->
     <div class="marquee-ribbon">
@@ -804,14 +788,12 @@
         </div>
     </div>
 
-    <!-- Main Wrapper for Cards -->
     <div class="wrapper">
 
         <!-- Portfolio Section Header -->
         <section class="portfolio-section" id="projects">
             <h2 class="section-header-y2k">Hành trình 6 bài thực hành cốt lõi</h2>
             
-            <!-- Middle Drive CTA -->
             <div class="middle-drive-cta">
                 <a href="https://drive.google.com/drive/folders/1GJI6gDnsgXTXihnf-n0rLMtJhJeyFWYU?usp=drive_link" target="_blank" class="drive-btn">
                     📁 Khám phá trọn bộ tài liệu chi tiết trên Google Drive của Linh
@@ -840,30 +822,30 @@
                         </div>
                         <p class="task-pitch">"Trật tự và khoa học" - Làm chủ không gian lưu trữ số cá nhân ngay từ những bước đầu tiên.</p>
                         <p class="task-desc">
-                            Bài học vỡ lòng giúp tổ chức lại toàn bộ hệ thống file trong máy tính của mình. Mình đã thực hiện tuần tự và chuẩn hóa đầy đủ 12 bước thao tác với thư mục và file để tạo lập một không gian lưu trữ thực hành cá nhân ngăn nắp.
+                            Bài thực hành này giúp mình học cách tổ chức và làm việc trực tiếp với cấu trúc hệ điều hành máy tính Windows thông qua 12 bước thao tác chuẩn, tránh hoàn toàn việc lưu tệp tin bừa bãi.
                         </p>
-                        <button class="explore-btn" onclick="toggleDrawer(1)">Khám phá 12 bước thực hành 🪩</button>
+                        <button class="explore-btn" onclick="toggleDrawer(1)">Khám phá chi tiết 🪩</button>
                     </div>
                     <!-- Drawer 1 -->
                     <div class="drawer" id="drawer-1">
                         <div class="drawer-inner">
                             <div>
                                 <div class="section-box">
-                                    <h4>🎯 Chi tiết 12 bước thực hành</h4>
-                                    <ul style="max-height: 380px; overflow-y: auto; padding-right: 5px;">
-                                        <li><strong>Bước 1:</strong> Mở <code>File Explorer</code> bằng phím tắt <code>Win + E</code> hoặc nhấn icon thư mục vàng trên taskbar.</li>
-                                        <li><strong>Bước 2:</strong> Vào <code>This PC</code>, nhấp đúp truy cập ổ đĩa dữ liệu (D: hoặc E:). Nếu chỉ có ổ C:, truy cập thư mục <code>Documents</code>.</li>
-                                        <li><strong>Bước 3:</strong> Tạo thư mục mới bằng cách click chuột phải -> <code>New</code> -> <code>Folder</code>. Đặt tên <code>ThucHanh_NgoYenLinh</code> rồi ấn Enter.</li>
-                                        <li><strong>Bước 4:</strong> Nhấp đúp chuột để vào bên trong thư mục vừa tạo.</li>
-                                        <li><strong>Bước 5:</strong> Click chuột phải vào khoảng trống -> <code>New</code> -> <code>Text Document</code>. Đặt tên là <code>GhiChu.txt</code>.</li>
-                                        <li><strong>Bước 6:</strong> Đổi tên file: Chuột phải vào tệp -> chọn <code>Rename</code>, đổi tên thành <code>GhiChuQuanTrong.txt</code>.</li>
-                                        <li><strong>Bước 7:</strong> Tạo thư mục con: Chuột phải vào khoảng trống -> <code>New</code> -> <code>Folder</code>, đặt tên là <code>TaiLieu</code>.</li>
-                                        <li><strong>Bước 8:</strong> Sao chép: Click chuột phải vào <code>GhiChuQuanTrong.txt</code> -> chọn <code>Copy</code> (hoặc <code>Ctrl+C</code>).</li>
-                                        <li><strong>Bước 9:</strong> Dán: Nhấp đúp vào thư mục <code>TaiLieu</code>, chuột phải vào khoảng trống -> chọn <code>Paste</code> (hoặc <code>Ctrl+V</code>).</li>
-                                        <li><strong>Bước 10:</strong> Di chuyển (Cut & Paste): Quay lại thư mục cha, tạo file <code>DiChuyen.txt</code>. Chuột phải vào nó -> chọn <code>Cut</code> (hoặc <code>Ctrl+X</code>), vào lại <code>TaiLieu</code> -> chọn <code>Paste</code>.</li>
-                                        <li><strong>Bước 11:</strong> Xóa file: Trong thư mục <code>TaiLieu</code>, chuột phải vào <code>GhiChuQuanTrong.txt</code> -> chọn <code>Delete</code> để đưa vào Recycle Bin.</li>
-                                        <li><strong>Bước 12:</strong> Xóa vĩnh viễn: Chọn file <code>DiChuyen.txt</code>, nhấn giữ tổ hợp phím <code>Shift + Delete</code> -> chọn Yes để xóa vĩnh viễn.</li>
-                                        <li><em>(Tùy chọn)</em> Khôi phục: Mở biểu tượng Recycle Bin ngoài Desktop -> chuột phải vào <code>GhiChuQuanTrong.txt</code> -> chọn <code>Restore</code> để khôi phục về thư mục gốc.</li>
+                                    <h4>🎯 Chi tiết đầy đủ 12 bước thực hành</h4>
+                                    <ul style="max-height: 400px; overflow-y: auto; padding-right: 5px;">
+                                        <li><strong>Bước 1: Mở File Explorer:</strong> Nhấn tổ hợp phím <code>Windows + E</code> hoặc nhấp vào biểu tượng thư mục màu vàng trên thanh tác vụ.</li>
+                                        <li><strong>Bước 2: Truy cập ổ đĩa/thư mục:</strong> Ở cột bên trái, nhấp vào <code>This PC</code>, sau đó nhấp đúp vào một ổ đĩa không phải ổ hệ thống (ví dụ: ổ D: hoặc E:). Nếu chỉ có ổ C:, hãy vào thư mục <code>Documents</code>.</li>
+                                        <li><strong>Bước 3: Tạo thư mục mới:</strong> Nhấp chuột phải vào một khoảng trống -> chọn <code>New</code> -> <code>Folder</code>. Đặt tên thư mục là <code>ThucHanh_NgoYenLinh</code>. Nhấn Enter.</li>
+                                        <li><strong>Bước 4: Vào thư mục vừa tạo:</strong> Nhấp đúp vào thư mục <code>ThucHanh_NgoYenLinh</code>.</li>
+                                        <li><strong>Bước 5: Tạo tệp tin văn bản:</strong> Nhấp chuột phải vào khoảng trống -> <code>New</code> -> <code>Text Document</code>. Đặt tên là <code>GhiChu.txt</code>. Nhấn Enter.</li>
+                                        <li><strong>Bước 6: Đổi tên tệp tin:</strong> Nhấp chuột phải vào tệp <code>GhiChu.txt</code> -> chọn <code>Rename</code>. Đổi tên thành <code>GhiChuQuanTrong.txt</code>. Nhấn Enter.</li>
+                                        <li><strong>Bước 7: Tạo thư mục con:</strong> Trong thư mục <code>ThucHanh_NgoYenLinh</code>, nhấp chuột phải -> <code>New</code> -> <code>Folder</code>. Đặt tên là <code>TaiLieu</code>.</li>
+                                        <li><strong>Bước 8: Sao chép tệp tin (Copy & Paste):</strong> Nhấp chuột phải vào tệp <code>GhiChuQuanTrong.txt</code> -> chọn <code>Copy</code> (hoặc chọn tệp rồi nhấn <code>Ctrl + C</code>).</li>
+                                        <li><strong>Bước 9: Dán tệp tin:</strong> Nhấp đúp vào thư mục <code>TaiLieu</code>, nhấp chuột phải vào khoảng trống bên trong -> chọn <code>Paste</code> (hoặc nhấn <code>Ctrl + V</code>). Bây giờ bạn có một bản sao của tệp trong thư mục <code>TaiLieu</code>.</li>
+                                        <li><strong>Bước 10: Di chuyển tệp tin (Cut & Paste):</strong> Quay lại thư mục <code>ThucHanh_NgoYenLinh</code>. Tạo một tệp mới tên là <code>DiChuyen.txt</code>. Nhấp chuột phải vào tệp <code>DiChuyen.txt</code> -> chọn <code>Cut</code> (hoặc nhấn <code>Ctrl + X</code>). Nhấp đúp vào thư mục <code>TaiLieu</code>, nhấp chuột phải vào khoảng trống -> chọn <code>Paste</code> (hoặc nhấn <code>Ctrl + V</code>). Tệp gốc đã biến mất khỏi vị trí cũ và chỉ còn ở vị trí mới.</li>
+                                        <li><strong>Bước 11: Xóa tệp tin:</strong> Trong thư mục <code>TaiLieu</code>, nhấp chuột phải vào tệp <code>GhiChuQuanTrong.txt</code> -> chọn <code>Delete</code>. Tệp sẽ được chuyển vào Thùng rác (Recycle Bin).</li>
+                                        <li><strong>Bước 12: Xóa vĩnh viễn:</strong> Chọn tệp <code>DiChuyen.txt</code>, nhấn giữ phím <code>Shift</code> và nhấn phím <code>Delete</code>. Một cảnh báo sẽ hiện ra. Nếu đồng ý, tệp sẽ bị xóa vĩnh viễn mà không qua Thùng rác.</li>
+                                        <li><em>Khôi phục từ Thùng rác (Tùy chọn):</em> Tìm biểu tượng <code>Recycle Bin</code> trên màn hình nền, nhấp đúp để mở. Tìm tệp <code>GhiChuQuanTrong.txt</code> đã xóa, nhấp chuột phải vào nó và chọn <code>Restore</code>. Tệp sẽ quay trở lại vị trí ban đầu.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -910,7 +892,7 @@
                         </div>
                         <p class="task-pitch">"Gạn đục khơi trong" - Kỹ năng truy lùng và định giá các tài liệu học thuật đáng tin cậy.</p>
                         <p class="task-desc">
-                            Chọn chủ đề về <em>"Hiệu quả của phương pháp dạy ngôn ngữ giao tiếp (CLT) trong cải thiện kỹ năng nói cho người học EFL"</em>, mình đã sử dụng các cú pháp tìm kiếm học thuật nâng cao để lập bảng đánh giá chi tiết 10 nguồn tài liệu chính thống.
+                            Chọn chủ đề về <em>"Hiệu quả của phương pháp dạy ngôn ngữ giao tiếp (CLT) trong cải thiện kỹ năng nói cho người học EFL"</em>, mình đã sử dụng các cú pháp tìm kiếm nâng cao để lập bảng đánh giá chi tiết 10 nguồn tài liệu chính thống.
                         </p>
                         <button class="explore-btn" onclick="toggleDrawer(2)">Khám phá nguồn tài liệu 🪩</button>
                     </div>
@@ -921,16 +903,23 @@
                                 <div class="section-box">
                                     <h4>🎯 Mục tiêu bài học</h4>
                                     <ul>
-                                        <li>Vận dụng bộ lọc tìm kiếm nâng cao (AND, OR, site:, filetype:) trên Google Scholar và ERIC.</li>
+                                        <li>Vận dụng bộ lọc tìm kiếm nâng cao (AND, OR, site:, filetype:) trên Google Scholar, ResearchGate và ERIC.</li>
                                         <li>Thẩm định giá trị khoa học dựa trên: Uy tín tác giả, Đơn vị xuất bản, Chỉ số trích dẫn, Phương pháp nghiên cứu và Tính cập nhật (2001 - 2024).</li>
                                     </ul>
                                 </div>
                                 <div class="section-box">
-                                    <h4>📚 Danh mục tài liệu đánh giá tiêu biểu</h4>
-                                    <ul>
-                                        <li><strong>Richards (2006):</strong> Sách lý thuyết nền tảng từ Cambridge, trích dẫn rất cao.</li>
-                                        <li><strong>Savignon (2017):</strong> Bài báo tổng hợp từ TESOL, tính thực tiễn cao.</li>
-                                        <li><strong>Breen et al. (2001):</strong> Nghiên cứu thực nghiệm giá trị trên tạp chí Applied Linguistics.</li>
+                                    <h4>📚 Toàn bộ danh mục tài liệu tham khảo (chuẩn APA 7th)</h4>
+                                    <ul style="max-height: 250px; overflow-y: auto; padding-right: 5px;">
+                                        <li>1. Al-Tamimi, N. (2014) ‘Effectiveness of Communicative Language Teaching’, <em>International Journal of English Language Teaching</em>.</li>
+                                        <li>2. Alofi, R.A. and Almalki, M.S. (2022) ‘Conceptualizing Communicative Language Teaching in the EFL Context’, <em>ERIC</em>.</li>
+                                        <li>3. Breen, M.P. et al. (2001) ‘Making sense of language teaching: teachers’ principles and classroom practices’, <em>Applied Linguistics</em>, 22(4), pp. 470–501.</li>
+                                        <li>4. European Journal of Education (2023) ‘Systematic Review of Communicative Language Teaching in Language Education’.</li>
+                                        <li>5. Mukhlas, M.A.T. (n.d.) ‘The Effect of Communicative Language Teaching on English Speaking Proficiency’, <em>ResearchGate</em>.</li>
+                                        <li>6. Nguyen, N.H. (2024) ‘Vietnamese EFL teachers’ approach in employment of CLT’, <em>International Journal of English Literature and Social Sciences</em>, 9(5).</li>
+                                        <li>7. Nunan, D. (2003) <em>Practical English Language Teaching</em>. New York: McGraw-Hill.</li>
+                                        <li>8. Rao, Z. (2002) ‘Chinese students’ perceptions of communicative and non-communicative activities’, <em>ELT Journal</em>.</li>
+                                        <li>9. Richards, J.C. (2006) <em>Communicative Language Teaching Today</em>. Cambridge: Cambridge University Press.</li>
+                                        <li>10. Savignon, S.J. (2017) ‘Communicative Competence’, <em>The TESOL Encyclopedia of English Language Teaching</em>.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -941,22 +930,59 @@
                                 </div>
                                 <!-- Interactive Sim 2 -->
                                 <div class="simulator-panel">
-                                    <h5>🔎 Bảng lọc tài liệu động</h5>
+                                    <h5>🔎 Bảng đánh giá 10 nguồn tài liệu đầy đủ</h5>
                                     <div class="filter-tabs">
                                         <span class="filter-tab active" onclick="filterScholar('all', this)">Tất cả</span>
                                         <span class="filter-tab" onclick="filterScholar('high', this)">Độ tin cậy Cao</span>
-                                        <span class="filter-tab" onclick="filterScholar('recent', this)">Rất mới (>=2023)</span>
+                                        <span class="filter-tab" onclick="filterScholar('recent', this)">Rất mới / Mới</span>
                                     </div>
-                                    <div class="scholar-list-mock" id="scholar-list">
-                                        <div class="scholar-item-mock" data-trust="high" data-year="2006">
-                                            <span>Richards (2006) - Cambridge</span> <span class="meta-tag">Độ tin cậy: Cao</span>
-                                        </div>
-                                        <div class="scholar-item-mock" data-trust="mid" data-year="2024">
-                                            <span>Nguyen (2024) - IJELS</span> <span class="meta-tag">Rất mới (2024)</span>
-                                        </div>
-                                        <div class="scholar-item-mock" data-trust="high" data-year="2023">
-                                            <span>Systematic Review (2023) - EJ</span> <span class="meta-tag">Rất mới & Cao</span>
-                                        </div>
+                                    <div class="scholar-table-container">
+                                        <table class="scholar-table" id="scholar-table-body">
+                                            <thead>
+                                                <tr>
+                                                    <th>STT</th>
+                                                    <th>Tài liệu</th>
+                                                    <th>Loại</th>
+                                                    <th>Tác giả</th>
+                                                    <th>Cơ quan</th>
+                                                    <th>Phương pháp</th>
+                                                    <th>Cập nhật</th>
+                                                    <th>Tin cậy</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-trust="high" data-year="2006">
+                                                    <td>1</td><td>Richards (2006)</td><td>Sách</td><td>Uy tín cao</td><td>Cambridge</td><td>Lý thuyết</td><td>Trung bình</td><td>Cao</td>
+                                                </tr>
+                                                <tr data-trust="mid" data-year="2020">
+                                                    <td>2</td><td>Mukhlas</td><td>Hội thảo</td><td>Trung bình</td><td>ResearchGate</td><td>Thực nghiệm</td><td>Mới</td><td>Trung bình</td>
+                                                </tr>
+                                                <tr data-trust="mid" data-year="2001">
+                                                    <td>3</td><td>Breen et al. (2001)</td><td>Bài báo</td><td>Cao</td><td>Applied Linguistics</td><td>Thực nghiệm</td><td>Cũ</td><td>Khá</td>
+                                                </tr>
+                                                <tr data-trust="high" data-year="2017">
+                                                    <td>4</td><td>Savignon (2017)</td><td>Bài báo</td><td>Rất cao</td><td>TESOL</td><td>Tổng hợp</td><td>Mới</td><td>Cao</td>
+                                                </tr>
+                                                <tr data-trust="mid" data-year="2024">
+                                                    <td>5</td><td>Nguyen (2024)</td><td>Bài báo</td><td>Khá</td><td>IJELS</td><td>Thực nghiệm</td><td>Rất mới</td><td>Khá</td>
+                                                </tr>
+                                                <tr data-trust="mid" data-year="2022">
+                                                    <td>6</td><td>Alofi & Almalki</td><td>Bài báo</td><td>Khá</td><td>ERIC</td><td>Định tính</td><td>Mới</td><td>Khá</td>
+                                                </tr>
+                                                <tr data-trust="high" data-year="2023">
+                                                    <td>7</td><td>Systematic Review (2023)</td><td>Bài báo</td><td>Cao</td><td>European Journal</td><td>Tổng quan</td><td>Mới</td><td>Cao</td>
+                                                </tr>
+                                                <tr data-trust="mid" data-year="2014">
+                                                    <td>8</td><td>Al-Tamimi (2014)</td><td>Bài báo</td><td>Khá</td><td>Int. Journal</td><td>Thực nghiệm</td><td>Khá mới</td><td>Khá</td>
+                                                </tr>
+                                                <tr data-trust="mid" data-year="2002">
+                                                    <td>9</td><td>Rao (2002)</td><td>Bài báo</td><td>Khá</td><td>ELT Journal</td><td>Khảo sát</td><td>Cũ</td><td>Trung bình</td>
+                                                </tr>
+                                                <tr data-trust="mid" data-year="2003">
+                                                    <td>10</td><td>Nunan (2003)</td><td>Sách</td><td>Cao</td><td>McGraw-Hill</td><td>Lý thuyết</td><td>Trung bình</td><td>Khá</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -984,7 +1010,7 @@
                         </div>
                         <p class="task-pitch">"Giao tiếp thông minh với AI" - Ứng dụng kỹ thuật cấu trúc prompt để khai phá tri thức chất lượng cao.</p>
                         <p class="task-desc">
-                            Với chủ đề thực hành xuyên suốt về <em>"Mạng thần kinh nhân tạo (ANN) trong AI"</em>, mình đã so sánh hiệu quả của 3 thế hệ prompt (Cơ bản - Cải tiến - Nâng cao) để rút ra phương pháp tối ưu hóa đầu ra cho mô hình ngôn ngữ lớn.
+                            Với chủ đề thực hành xuyên suốt về <em>"Mạng thần kinh nhân tạo (ANN) trong AI"</em>, mình đã so sánh hiệu quả của 3 thế hệ prompt (Cơ bản - Cải tiến - Nâng cao) áp dụng trên 3 tác vụ học tập cơ bản.
                         </p>
                         <button class="explore-btn" onclick="toggleDrawer(3)">Khám phá kỹ thuật Prompt 🪩</button>
                     </div>
@@ -1003,21 +1029,68 @@
                                         <li><strong>E - Exact Output:</strong> Quy định chặt chẽ cấu trúc và độ dài.</li>
                                     </ul>
                                 </div>
+                                <div class="section-box">
+                                    <h4>📊 Bảng phân tích sắc thái so sánh thực nghiệm</h4>
+                                    <table class="comparison-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Tiêu chí so sánh</th>
+                                                <th>Prompt Cơ bản</th>
+                                                <th>Prompt Cải tiến</th>
+                                                <th>Prompt Nâng cao</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Độ chính xác</strong></td>
+                                                <td>Chung chung, dễ lan man ngoài lề.</td>
+                                                <td>Đi đúng trọng tâm, cấu trúc thô.</td>
+                                                <td>Cực kỳ chính xác, đi sâu vào phân khúc yêu cầu.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Cấu trúc</strong></td>
+                                                <td>Khối văn bản dày (wall of text) khó đọc.</td>
+                                                <td>Có chia đoạn rõ bằng bullet points.</td>
+                                                <td>Định dạng chuyên nghiệp (bảng, tiêu đề lớn nhỏ).</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Giá trị học thuật</strong></td>
+                                                <td>Thấp. Giống như tra Google.</td>
+                                                <td>Trung bình. Đọc nhanh trước thi.</td>
+                                                <td>Rất cao. Kích thích tư duy sâu bằng ẩn dụ, chuỗi logic.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Hallucination</strong></td>
+                                                <td>Dễ xuất hiện khi gặp kiến thức sâu.</td>
+                                                <td>Hạn chế nhờ giới hạn phạm vi.</td>
+                                                <td>Gần như bằng 0 nhờ ép tư duy từng bước (CoT).</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div>
                                 <div class="highlight-box">
                                     <h4>💡 Trải nghiệm rút ra</h4>
-                                    <p>Khi ép AI giảng nghĩa thuật toán "Backpropagation" phức tạp bằng ẩn dụ "tập bắn cung để sửa sai", mình bất ngờ vì AI giải thích dễ hiểu hơn cả bách khoa toàn thư. Chỉ cần hỏi đúng cách, AI sẽ trả lời cực kỳ sâu sắc.</p>
+                                    <p>Mình thấy rõ chất lượng phản hồi từ LLM không đến ngẫu nhiên mà đến từ nguyên lý vận hành xác suất từ ngữ. Việc gán vai trò (Role Prompting), tạo khuôn mẫu (Few-shot) và khóa định dạng (Format Control) giúp hạn chế tối đa ảo tưởng của AI, mang lại giá trị học tập vượt trội.</p>
                                 </div>
                                 <!-- Interactive Sim 3 -->
                                 <div class="simulator-panel">
-                                    <h5>🚀 Bộ nâng cấp Prompt tương tác</h5>
-                                    <div class="filter-tabs">
-                                        <span class="filter-tab active" onclick="switchPrompt('basic', this)">Prompt Cơ bản</span>
-                                        <span class="filter-tab" onclick="switchPrompt('adv', this)">Prompt Nâng cao (C.R.E.A.T.E)</span>
+                                    <h5>🚀 Bộ thiết lập Prompt đầy đủ</h5>
+                                    <div style="font-size:0.75rem; margin-bottom:5px; font-weight:bold;">1. Chọn tác vụ:</div>
+                                    <div class="filter-tabs" id="task-tabs">
+                                        <span class="filter-tab active" onclick="selectPromptTask(1, this)">Tóm tắt ANN</span>
+                                        <span class="filter-tab" onclick="selectPromptTask(2, this)">Giải thích Backpropagation</span>
+                                        <span class="filter-tab" onclick="selectPromptTask(3, this)">Tạo Quiz trắc nghiệm</span>
                                     </div>
-                                    <div class="prompt-box" id="prompt-box-text">
-                                        "Giải thích khái niệm hàm lan truyền ngược (Backpropagation) trong ANN là gì?"
+                                    <div style="font-size:0.75rem; margin-bottom:5px; font-weight:bold;">2. Chọn cấp độ Prompt:</div>
+                                    <div class="filter-tabs" id="level-tabs">
+                                        <span class="filter-tab active" onclick="selectPromptLevel('basic', this)">Cơ bản</span>
+                                        <span class="filter-tab" onclick="selectPromptLevel('improved', this)">Cải tiến</span>
+                                        <span class="filter-tab" onclick="selectPromptLevel('adv', this)">Nâng cao</span>
+                                    </div>
+                                    <div class="prompt-box" id="prompt-display">
+                                        "Tóm tắt bài viết sau đây về Mạng thần kinh nhân tạo (ANN): [Dán link bài viết]"
                                     </div>
                                 </div>
                             </div>
@@ -1054,12 +1127,20 @@
                         <div class="drawer-inner">
                             <div>
                                 <div class="section-box">
-                                    <h4>🎯 Phân vai công cụ của nhóm</h4>
+                                    <h4>🎯 Chi tiết hóa quy trình sử dụng 4 công cụ</h4>
                                     <ul>
-                                        <li><strong>Trello:</strong> Thiết lập bảng To Do, Doing, Review, Done rõ ràng. Dùng nhãn màu (Labels) để xác định mức độ khẩn cấp.</li>
-                                        <li><strong>Google Docs:</strong> Đồng soạn thảo, sử dụng tính năng <code>Comment</code> và <code>Suggesting</code> để góp ý trực tiếp.</li>
-                                        <li><strong>Google Drive:</strong> Lưu trữ tập trung các tài liệu thô, phân loại rõ ràng các phiên bản draft.</li>
-                                        <li><strong>Google Meet:</strong> Tổ chức họp trực tuyến định kỳ vào buổi tối để thống nhất bố cục.</li>
+                                        <li><strong>Trello (Quản lý việc cá nhân):</strong> Xây dựng bảng gồm 4 cột (To Do, Doing, Review, Done). Quản lý thẻ việc: Tìm article, Lập general outline, Viết draft, Peer review. Sử dụng nhãn màu (Labels) phân loại và đặt deadline rõ ràng.</li>
+                                        <li><strong>Google Docs (Cộng tác soạn thảo):</strong> Cả nhóm cùng xây dựng dàn ý và phát triển nội dung trực tuyến. Sử dụng tính năng <code>Comment</code> và <code>Suggesting</code> góp ý lỗi ngữ pháp, dùng lịch sử chỉnh sửa (Version history) theo dõi đóng góp cá nhân và khôi phục khi cần.</li>
+                                        <li><strong>Google Drive (Kho lưu trữ chung):</strong> Tổ chức cấu trúc thư mục rõ ràng gồm: Selected information, Draft, Peer review, Reading package. Đồng nhất quy tắc đặt tên tệp: First draft, Second draft, Final draft để tránh nhầm lẫn phiên bản.</li>
+                                        <li><strong>Google Meet (Họp nhóm trực tuyến):</strong> Tổ chức họp buổi tối trực tiếp thống nhất bố cục và lựa chọn tài liệu, tiết kiệm tối đa thời gian di chuyển.</li>
+                                    </ul>
+                                </div>
+                                <div class="section-box">
+                                    <h4>⚡ Khó khăn & Giải pháp thực tế</h4>
+                                    <ul>
+                                        <li><strong>Thách thức 1 (Lệch lịch học):</strong> Giải pháp họp Meet buổi tối và chốt trước lịch.</li>
+                                        <li><strong>Thách thức 2 (Tài liệu khổng lồ):</strong> Giải pháp phân loại cấu trúc thư mục Drive khoa học.</li>
+                                        <li><strong>Thách thức 3 (Khó bám sát tiến độ):</strong> Giải pháp dùng Trello cập nhật việc thường xuyên.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -1075,19 +1156,19 @@
                                         <div class="kanban-col">
                                             <div class="kanban-col-title">To Do</div>
                                             <div class="kanban-card" id="task-1" onclick="moveTask(1)">
-                                                <span>Lập dàn ý</span> <span style="color:var(--neon-pink)">★</span>
+                                                <span>Lập general outline</span> <span style="color:var(--neon-pink)">★</span>
                                             </div>
                                         </div>
                                         <div class="kanban-col">
                                             <div class="kanban-col-title">Doing</div>
                                             <div class="kanban-card" id="task-2" onclick="moveTask(2)">
-                                                <span>Viết nháp</span> <span style="color:var(--neon-blue)">★</span>
+                                                <span>Viết draft bài luận</span> <span style="color:var(--neon-blue)">★</span>
                                             </div>
                                         </div>
                                         <div class="kanban-col">
                                             <div class="kanban-col-title">Done</div>
                                             <div class="kanban-card" style="text-decoration:line-through; opacity:0.6;">
-                                                <span>Tìm article</span>
+                                                <span>Tìm article học thuật</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1127,11 +1208,41 @@
                         <div class="drawer-inner">
                             <div>
                                 <div class="section-box">
-                                    <h4>🎯 Vai trò đóng góp thực tế</h4>
+                                    <h4>🎯 Chi tiết hóa quy trình sử dụng AI</h4>
                                     <ul>
-                                        <li><strong>Phần AI hỗ trợ:</strong> Lên dàn ý nội dung ban đầu, đề xuất layout bố cục 3 phần trực quan và vẽ minh họa thô các biểu tượng AI.</li>
-                                        <li><strong>Phần cá nhân mình thực hiện:</strong> Lọc bỏ câu chữ rườm rà, biên tập ví dụ thực tế học tập cá nhân, xử lý tách nền hình ảnh DALL-E và tinh chỉnh độ đậm nhạt màu sắc thương hiệu.</li>
+                                        <li><strong>ChatGPT (Ý tưởng & Nội dung):</strong> Đề xuất khung sườn lợi ích (tiết kiệm thời gian, gợi ý sáng tạo), thách thức (phụ thuộc, sai số dữ liệu) và lưu ý (kiểm tra chéo, trích nguồn). Mình trực tiếp cắt gọn và bổ sung ví dụ thực tế từ cá nhân.</li>
+                                        <li><strong>DALL-E (Hình ảnh minh họa):</strong> Chạy prompt: <em>"Create a modern flat illustration of university students using generative AI tools for studying, colorful infographic style..."</em> tạo ra nhân vật. Mình trực tiếp xóa nền và căn kích thước.</li>
+                                        <li><strong>Canva AI (Thiết kế bố cục):</strong> Đề xuất layout 3 phần màu sắc đồng nhất. Mình trực tiếp sửa font chữ, chỉnh độ mờ của nền, điều phối màu để tăng tính trực quan.</li>
                                     </ul>
+                                </div>
+                                <div class="section-box">
+                                    <h4>📊 Chi tiết bảng so sánh ưu/nhược các công cụ AI</h4>
+                                    <table class="comparison-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Công cụ</th>
+                                                <th>Ưu điểm nổi bật</th>
+                                                <th>Hạn chế tồn tại</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>ChatGPT</strong></td>
+                                                <td>Tạo nội dung nhanh, mạch lạc, dễ điều chỉnh phong cách/giọng văn.</td>
+                                                <td>Thiếu chiều sâu nếu prompt hời hợt; dữ liệu cần được kiểm chứng chéo.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>DALL-E</strong></td>
+                                                <td>Minh họa độc đáo, trực quan hóa tốt các ý tưởng khó diễn tả bằng lời.</td>
+                                                <td>Khó kiểm soát chi tiết nhỏ, đôi khi bị lỗi hình ảnh, cần điều chỉnh prompt nhiều lần.</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Canva AI</strong></td>
+                                                <td>Tự động hóa bố cục cực nhanh, dễ dùng cho người chưa thạo đồ họa.</td>
+                                                <td>Các mẫu thiết kế dễ trùng lặp; nhiều tính năng cao cấp đòi hỏi bản trả phí.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                             <div>
@@ -1141,7 +1252,7 @@
                                 </div>
                                 <!-- Interactive Sim 5 -->
                                 <div class="simulator-panel">
-                                    <h5>📊 Tỷ lệ đóng góp: AI vs Cá nhân</h5>
+                                    <h5>📊 Tỷ lệ đóng góp thực tế trong dự án Infographic</h5>
                                     <div class="slider-container">
                                         <input type="range" min="0" max="100" value="55" class="slider-bar" id="ai-slider" oninput="updateSlider(this.value)">
                                         <div class="slider-labels">
@@ -1186,6 +1297,14 @@
                     <div class="drawer" id="drawer-6">
                         <div class="drawer-inner">
                             <div>
+                                <div class="section-box">
+                                    <h4>🎯 Phân tích chính sách AI ĐHQGHN</h4>
+                                    <ul>
+                                        <li><strong>Công cụ hỗ trợ:</strong> ĐHQGHN khuyến khích khai thác AI để tìm ý tưởng, tóm tắt tài liệu, kiểm tra ngữ pháp nhưng không cho phép AI làm thay thế tư duy gốc.</li>
+                                        <li><strong>Trách nhiệm:</strong> Người học chịu trách nhiệm hoàn toàn về tính xác thực của thông tin được nộp. Không dùng AI để làm trọn vẹn bài luận hay bài thi.</li>
+                                        <li><strong>Tiên phong:</strong> ĐHQGHN triển khai học phần bắt buộc <code>VNU1001</code> từ 2025-2026 thể hiện tầm nhìn trang bị năng lực số văn minh cho thế hệ mới.</li>
+                                    </ul>
+                                </div>
                                 <div class="section-box">
                                     <h4>🎯 Bộ 6 cam kết sử dụng AI</h4>
                                     <ul>
@@ -1255,7 +1374,7 @@
                         <div class="reflection-box">
                             <h4>⚡ Khó khăn & Bài học</h4>
                             <ul>
-                                <li><strong>Khó khăn:</strong> Ban đầu việc quản lý nhóm từ xa khá lộn xộn, AI đôi khi đưa ra kết quả không chính xác (hallucination).</li>
+                                <li><strong>Khó khăn:</strong> Ban đầu việc quản lý nhóm từ xa khá lộn xộn do chênh lịch học, AI đôi khi đưa ra kết quả không chính xác (hallucination).</li>
                                 <li><strong>Bài học kinh nghiệm:</strong> Mọi thứ chỉ thực sự đi vào khuôn khổ khi nhóm mình biết sử dụng bảng Trello rõ ràng và thiết lập bộ nguyên tắc kiểm chứng thông tin AI chặt chẽ trước khi sử dụng.</li>
                             </ul>
                         </div>
@@ -1264,7 +1383,7 @@
             </div>
         </section>
 
-    </div><!-- End main wrapper -->
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -1385,34 +1504,63 @@
             tabs.forEach(t => t.classList.remove('active'));
             el.classList.add('active');
 
-            const items = document.querySelectorAll('#scholar-list .scholar-item-mock');
-            items.forEach(item => {
-                const trust = item.getAttribute('data-trust');
-                const year = parseInt(item.getAttribute('data-year'));
+            const rows = document.querySelectorAll('#scholar-table-body tbody tr');
+            rows.forEach(row => {
+                const trust = row.getAttribute('data-trust');
+                const year = parseInt(row.getAttribute('data-year'));
                 if (mode === 'all') {
-                    item.style.display = 'flex';
+                    row.style.display = 'table-row';
                 } else if (mode === 'high') {
-                    if (trust === 'high') item.style.display = 'flex';
-                    else item.style.display = 'none';
+                    if (trust === 'high') row.style.display = 'table-row';
+                    else row.style.display = 'none';
                 } else if (mode === 'recent') {
-                    if (year >= 2023) item.style.display = 'flex';
-                    else item.style.display = 'none';
+                    if (year >= 2017) row.style.display = 'table-row';
+                    else row.style.display = 'none';
                 }
             });
         }
 
-        /* SIMULATOR 3: PROMPT UPGRADER */
-        function switchPrompt(type, el) {
-            const tabs = el.parentNode.querySelectorAll('.filter-tab');
+        /* SIMULATOR 3: DYNAMIC PROMPT DISPLAY */
+        let currentPromptTask = 1;
+        let currentPromptLevel = 'basic';
+
+        const promptData = {
+            1: {
+                basic: '"Tóm tắt bài viết sau đây về Mạng thần kinh nhân tạo (ANN): [Link bài viết]"',
+                improved: '"Hãy tóm tắt bài viết dưới đây về Mạng thần kinh nhân tạo (ANN). Bản tóm tắt cần chia rõ thành các phần: (1) Định nghĩa, (2) Cấu trúc hoạt động, (3) Ứng dụng thực tế. Độ dài không quá 300 từ. Định dạng bằng các đầu dòng rõ ràng. [Dán đoạn văn]"',
+                adv: '<span class="tag-r">[Role] Bạn là một chuyên gia nghiên cứu khoa học dữ liệu có khả năng truyền đạt xuất sắc...</span><br><span class="tag-c">[Context] tạo ra một bản "Executive Summary" cho sinh viên ngành CNTT.</span><br><span class="tag-t">[Chain-of-Thought] Hãy thực hiện theo các bước sau:<br>Bước 1: Đọc và trích 5 từ khóa cốt lõi kèm định nghĩa ngắn.<br>Bước 2: Xác định luận điểm chính và phương pháp hoạt động của ANN.<br>Bước 3: Tổng hợp các kết quả/ứng dụng quan trọng nhất.</span><br><span class="tag-eo">[Format Control] Trình bày dưới dạng Markdown, ngôn ngữ khoa học dễ tiếp cận, không thêm thắt thông tin nằm ngoài văn bản. [Dán đoạn văn]</span>'
+            },
+            2: {
+                basic: '"Giải thích khái niệm hàm lan truyền ngược (Backpropagation) trong ANN là gì?"',
+                improved: '"Hãy giải thích khái niệm \'Hàm lan truyền ngược\' (Backpropagation) cho một sinh viên năm nhất ngành máy tính. Định dạng câu trả lời gồm: (1) Khái niệm cơ bản, (2) Ví dụ thực tế để minh họa, và (3) Vai trò của nó trong việc giúp AI tự học."',
+                adv: '<span class="tag-r">[Role] Bạn là một giảng viên đại học nổi tiếng với phong cách giảng dạy trực quan, thường xuyên sử dụng phương pháp ẩn dụ (Analogy)...</span><br>Hãy giải thích khái niệm \'Hàm lan truyền ngược (Backpropagation)\' trong học sâu (Deep Learning).<br><span class="tag-a">[Few-shot] Hãy học theo cách giải thích dưới đây: [Ví dụ mẫu: Khái niệm \'Overfitting\' giống như một học sinh học vẹt toàn bộ các đề thi mẫu của năm cũ...]</span><br><span class="tag-e">[Explicit Instruction] Yêu cầu đối với bài giải thích:<br>+ Dùng một ẩn dụ thực tế (ví dụ: tập bắn cung hoặc sửa sai khi làm bánh).<br>+ Chia nhỏ quy trình thành các bước tuyến tính logic.<br>+ Kết luận bằng 1 câu tóm tắt bản chất cốt lõi nhất.</span>'
+            },
+            3: {
+                basic: '"Tạo cho tôi 5 câu hỏi trắc nghiệm về chủ đề Mạng thần kinh nhân tạo."',
+                improved: '"Tạo một bộ câu hỏi ôn tập gồm 5 câu trắc nghiệm (4 lựa chọn A, B, C, D) về chủ đề Mạng thần kinh nhân tạo. Các câu hỏi phải bao gồm cả mức độ nhận biết và thông hiểu. Cuối bài phải cung cấp đáp án đúng."',
+                adv: '<span class="tag-r">[Role] Bạn là một Chuyên gia Thiết kế Khảo thí và Đo lường Giáo dục...</span><br>Hãy tạo một bộ công cụ đánh giá năng lực gồm 5 câu hỏi trắc nghiệm về chủ đề \'Mạng thần kinh nhân tạo (ANN)\' dựa trên <span class="tag-c">[Context: Thang đo nhận thức của Bloom]</span>.<br><span class="tag-t">[Cấu trúc yêu cầu]:<br>+ Câu 1: Mức độ nhận biết.<br>+ Câu 2 & 3: Mức độ thông hiểu.<br>+ Câu 4 & 5: Mức độ Vận dụng/Phân tích.</span><br><span class="tag-eo">[Format Control] Mỗi câu gồm: Thang Bloom -> Nội dung -> 4 lựa chọn. ĐÁP ÁN VÀ GIẢI THÍCH: Đặt ở cuối phản hồi, ngăn cách bằng dòng kẻ dài \'---\'.</span>'
+            }
+        };
+
+        function selectPromptTask(taskId, el) {
+            const tabs = document.querySelectorAll('#task-tabs .filter-tab');
             tabs.forEach(t => t.classList.remove('active'));
             el.classList.add('active');
+            currentPromptTask = taskId;
+            updatePromptDisplay();
+        }
 
-            const box = document.getElementById('prompt-box-text');
-            if (type === 'basic') {
-                box.innerHTML = '"Giải thích khái niệm hàm lan truyền ngược (Backpropagation) trong ANN là gì?"';
-            } else {
-                box.innerHTML = '<span class="tag-r">[Role: Giảng viên ĐH trực quan]</span> Hãy giải thích khái niệm <span class="tag-e">[Explicit: Hàm lan truyền ngược - Backpropagation]</span> trong ANN cho <span class="tag-c">[Context: Sinh viên năm nhất Máy tính]</span>. Áp dụng <span class="tag-a">[Analogy: Việc tập bắn cung sửa sai]</span>. Phân tách thành <span class="tag-t">[Thinking Steps: Các bước tuyến tính logic]</span>, kết luận trong <span class="tag-eo">[Exact Output: 1 câu bản chất, định dạng Markdown]</span>.';
-            }
+        function selectPromptLevel(level, el) {
+            const tabs = document.querySelectorAll('#level-tabs .filter-tab');
+            tabs.forEach(t => t.classList.remove('active'));
+            el.classList.add('active');
+            currentPromptLevel = level;
+            updatePromptDisplay();
+        }
+
+        function updatePromptDisplay() {
+            const box = document.getElementById('prompt-display');
+            box.innerHTML = promptData[currentPromptTask][currentPromptLevel];
         }
 
         /* SIMULATOR 4: KANBAN BOARD */
